@@ -34,13 +34,13 @@
         }
         var nbrSlide = $('.embed-doc-page').length,
             uri= window.pathname;
-        var $modal = $('<div id="embed-doc-modal" class="modal" tabindex="-1" role="dialog">' +
-                        '<div class="modal-dialog" role="document">' +
-                            '<div class="modal-content">' +
-                                '<div class="modal-header">' +
+        var $modal = $('<div id="embed-doc-modal" class="modal embed-doc-modal" tabindex="-1" role="dialog">' +
+                        '<div class="modal-dialog embed-doc-modal-dialog" role="document">' +
+                            '<div class="modal-content embed-doc-modal-content">' +
+                                '<div class="modal-header embed-doc-modal-header">' +
                                     '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                                 '</div>' +
-                                '<div class="modal-body">' +
+                                '<div class="modal-body embed-doc-modal-body">' +
                                     '<div class="swiper-container">' +
                                         '<div class="swiper-wrapper">' +
                                             '<div class="swiper-slide tpl">' +
@@ -58,9 +58,9 @@
                                     '</div>' +
 
                                 '</div>' +
-                                '<div class="modal-footer">' +
-                                    '<button type="button" class="btn btn-default embed-doc-remind" data-dismiss="modal">' + remindText + '</button>' +
-                                    '<button type="button" class="btn btn-primary embed-doc-got-it" data-dismiss="modal">' + gotItText + '</button>' +
+                                '<div class="modal-footer embed-doc-modal-footer">' +
+                                    '<button type="button" class="btn btn-default btn-embed-doc-remind" data-dismiss="modal">' + remindText + '</button>' +
+                                    '<button type="button" class="btn btn-primary btn-embed-doc-got-it" data-dismiss="modal">' + gotItText + '</button>' +
                                 '</div>' +
                             '</div>' +
                         '</div>' +
@@ -84,8 +84,8 @@
         });
 
         if(nbrSlide>1){
-            var $arrows = $('<div class="swiper-button-next"></div>' +
-                            '<div class="swiper-button-prev"></div>')
+            var $arrows = $('<div class="swiper-button-next embed-doc-btn-next fa fa-arrow-right"></div>' +
+                            '<div class="swiper-button-prev embed-doc-btn-prev fa fa-arrow-left"></div>')
             $arrows.insertAfter('.swiper-container')
         }
 
@@ -104,11 +104,11 @@
             $('.embed-doc-show-help').click()
         }/*
 
-        $('.embed-doc-remind').click(function () {
+        $('.btn-embed-doc-remind').click(function () {
             localStorage.wise = 'no'
         })*/
 
-        $('.embed-doc-got-it').click(function(){
+        $('.btn-embed-doc-got-it').click(function(){
             localStorage.setItem(uri +'gotIt', 'yes')
         })
 
