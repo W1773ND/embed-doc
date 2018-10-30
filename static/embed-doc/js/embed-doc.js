@@ -100,11 +100,13 @@
         });
         // end Initialize Swiper
 
-        if (!localStorage.getItem(uri + 'gotIt')){
-            $('.embed-doc-show-help').click()
-        }/*
+        if (!localStorage.getItem(uri + 'gotIt'))
+            $('.embed-doc-show-help').click();
 
-        $('.btn-embed-doc-remind').click(function () {
+        else
+            $('.btn-embed-doc-remind').addClass('tpl');
+
+        /*$('.btn-embed-doc-remind').click(function () {
             localStorage.wise = 'no'
         })*/
 
