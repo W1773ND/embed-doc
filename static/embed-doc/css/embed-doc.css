@@ -29,10 +29,10 @@
         bottom: 2%;
         box-shadow: 1px 1px 9px 4px rgba(0, 0, 0, .1);
         color:  white;
-        cursor: help;
+        cursor: pointer;
         font-size: 23px;
         height: 46px;
-        line-height: 53px;
+        line-height: 50px;
         position: fixed;
         right: 1%;
         text-align: center;

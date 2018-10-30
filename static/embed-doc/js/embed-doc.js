@@ -67,7 +67,7 @@
                     '</div>' +
                     '<div  data-toggle="modal" data-target="#embed-doc-modal" class="embed-doc-show-help" title="' + showHelpText + '">' +
                         '<span class="glyphicon glyphicon-book"></span>' +
-                    '</div>')
+                    '</div>');
 
         $modal.insertAfter('.embed-doc');
 
@@ -77,15 +77,15 @@
                  title = $(this).data('title'),
                  text = $(this).text();
 
-             $slide.find('.tips-img').attr('src', img)
-             $slide.find('.embed-doc-page-title').text(title)
-             $slide.find('.tips-text').text(text)
+             $slide.find('.tips-img').attr('src', img);
+             $slide.find('.embed-doc-page-title').text(title);
+             $slide.find('.tips-text').text(text);
              $slide.appendTo('.swiper-wrapper')
         });
 
         if(nbrSlide>1){
             var $arrows = $('<div class="swiper-button-next embed-doc-btn-next fa fa-arrow-right"></div>' +
-                            '<div class="swiper-button-prev embed-doc-btn-prev fa fa-arrow-left"></div>')
+                            '<div class="swiper-button-prev embed-doc-btn-prev fa fa-arrow-left"></div>');
             $arrows.insertAfter('.swiper-container')
         }
 
@@ -95,8 +95,8 @@
             observeParents: true,
             navigation: {
                 nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
+                prevEl: '.swiper-button-prev'
+            }
         });
         // end Initialize Swiper
 
@@ -112,7 +112,7 @@
 
         $('.btn-embed-doc-got-it').click(function(){
             localStorage.setItem(uri +'gotIt', 'yes')
-        })
+        });
 
         $('.embed-doc').remove();
     };
