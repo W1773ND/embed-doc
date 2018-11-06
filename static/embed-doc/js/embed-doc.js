@@ -84,8 +84,8 @@
         });
 
         if(nbrSlide>1){
-            var $arrows = $('<div class="swiper-button-next embed-doc-btn-next fa fa-arrow-right"></div>' +
-                            '<div class="swiper-button-prev embed-doc-btn-prev fa fa-arrow-left"></div>');
+            var $arrows = $('<div class="swiper-button-next"></div>' +
+                            '<div class="swiper-button-prev"></div>');
             $arrows.insertAfter('.swiper-container')
         }
 
