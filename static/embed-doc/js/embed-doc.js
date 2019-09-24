@@ -21,20 +21,21 @@
     };
 
     c.initEmbedDoc = function (remindText, gotItText, showHelpText) {
-        if (!remindText){
+        let slideCount = $('.embed-doc-page').length;
+        if (slideCount === 0) return;
+
+        if (!remindText) {
             remindText = "Remind me later"
         }
 
-        if(!gotItText){
+        if(!gotItText) {
             gotItText = "Got it"
         }
 
-        if(!showHelpText){
+        if(!showHelpText) {
             showHelpText = "Show help"
         }
-        var nbrSlide = $('.embed-doc-page').length,
-            uri= window.pathname;
-        var $modal = $('<div id="embed-doc-modal" class="modal embed-doc-modal" tabindex="-1" role="dialog">' +
+        let $modal = $('<div id="embed-doc-modal" class="modal embed-doc-modal" tabindex="-1" role="dialog">' +
                         '<div class="modal-dialog embed-doc-modal-dialog" role="document">' +
                             '<div class="modal-content embed-doc-modal-content">' +
                                 '<div class="modal-header embed-doc-modal-header">' +
@@ -72,7 +73,7 @@
         $modal.insertAfter('.embed-doc');
 
         $('.embed-doc-page').each(function(){
-             var $slide = $modal.find('.swiper-slide:first').clone().removeClass('tpl'),
+             let $slide = $modal.find('.swiper-slide:first').clone().removeClass('tpl'),
                  img = $(this).data('img'),
                  title = $(this).data('title'),
                  text = $(this).text();
@@ -80,17 +81,17 @@
              $slide.find('.tips-img').attr('src', img);
              $slide.find('.embed-doc-page-title').text(title);
              $slide.find('.tips-text').text(text);
-             $slide.appendTo('.swiper-wrapper')
+             $slide.appendTo('#embed-doc-modal .swiper-wrapper')
         });
 
-        if(nbrSlide>1){
-            var $arrows = $('<div class="swiper-button-next"></div>' +
+        if(slideCount > 1 ) {
+            let $arrows = $('<div class="swiper-button-next"></div>' +
                             '<div class="swiper-button-prev"></div>');
-            $arrows.insertAfter('.swiper-container')
+            $arrows.insertAfter('#embed-doc-modal .swiper-container')
         }
 
         //Initialize Swiper
-         var swiper = new Swiper('.swiper-container', {
+         let swiper = new Swiper('#embed-doc-modal .swiper-container', {
             observer: true,
             observeParents: true,
             navigation: {
@@ -100,18 +101,14 @@
         });
         // end Initialize Swiper
 
+        let uri = window.location.pathname;
         if (!localStorage.getItem(uri + 'gotIt'))
             $('.embed-doc-show-help').click();
-
         else
             $('.btn-embed-doc-remind').addClass('tpl');
 
-        /*$('.btn-embed-doc-remind').click(function () {
-            localStorage.wise = 'no'
-        })*/
-
         $('.btn-embed-doc-got-it').click(function(){
-            localStorage.setItem(uri +'gotIt', 'yes')
+            localStorage.setItem(uri + 'gotIt', 'yes')
         });
 
         $('.embed-doc').remove();
